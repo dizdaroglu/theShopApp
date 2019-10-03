@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import ProductItem from '../../components/shop/ProductItem';
 import Fonts from '../../../constants/Fonts';
+import HeaderButton from '../../components/UI/HeaderButton';
+
 import * as cartActions from '../../actions/cart';
 
 const ProductOverviewScreen = props => {
@@ -33,13 +35,20 @@ const ProductOverviewScreen = props => {
     )
 }
 
-ProductOverviewScreen.navigationOptions = {
-    headerTitle: 'All Products',
-    headerTitleStyle: {
-        flex: 1,
-        textAlign: 'center',
-        fontFamily: Fonts.bold
-    },
+ProductOverviewScreen.navigationOptions = navData => {
+    return {
+        headerTitle: 'All Products',
+        headerTitleStyle: {
+            flex: 1,
+            textAlign: 'center',
+            fontFamily: Fonts.bold
+        },
+        headerLeft: <Text></Text>,
+        headerRight: <HeaderButton
+            style={{ marginRight: 20, }}
+            Ionicons="md-cart"
+            onPress={() => navData.navigation.navigate('Cart')} />
+    }
 }
 
 export default ProductOverviewScreen;

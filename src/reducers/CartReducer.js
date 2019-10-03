@@ -14,7 +14,6 @@ export default (state = initalState, action) => {
 
     switch (action.type) {
         case ADD_TO_CART:
-            console.log("action:", action.product)
             const addedProduct = action.product;
             const prodPrice = addedProduct.price;
             const prodTitle = addedProduct.title;
@@ -31,7 +30,6 @@ export default (state = initalState, action) => {
             } else {
                 updatedOrNewCartItem = new CartItem(1, prodPrice, prodTitle, prodPrice);
             }
-            console.log("updatedOrNewCartItem:", updatedOrNewCartItem);
             return {
                 ...state,
                 items: { ...state.items, [addedProduct.id]: updatedOrNewCartItem },

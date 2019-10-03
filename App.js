@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducers from './src/reducers';
 
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 //nav
 import ShopNavigator from './navigation/ShopNavigator';
@@ -14,7 +15,10 @@ import ShopNavigator from './navigation/ShopNavigator';
 export default class App extends Component {
 
   render() {
-    const store = createStore(reducers);
+    const store = createStore(
+      reducers,
+      composeWithDevTools()
+    );
 
     return (
       <Provider store={store}>

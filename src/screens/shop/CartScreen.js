@@ -10,6 +10,7 @@ import Card from '../../components/UI/Card';
 
 const CartScreen = props => {
     const carTotalAmount = useSelector(state => state.cart.totalAmount);
+
     const cartItems = useSelector(state => {
         const transformedCartItems = [];
         for (const key in state.cart.items) {
